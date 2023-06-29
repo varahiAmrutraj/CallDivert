@@ -13,7 +13,7 @@ namespace adminlte.AdditionalClasses
         private static void ReceiveMessage()
         {
             var accountSid = "ACa2d415f883ff334fd86f0596fce02eba";
-            var authToken = "[AuthToken]";
+            var authToken = "bdfba385ac51aab75bdb5331df6ab6ae";
             TwilioClient.Init(accountSid, authToken);
 
             var messageOptions = new CreateMessageOptions(

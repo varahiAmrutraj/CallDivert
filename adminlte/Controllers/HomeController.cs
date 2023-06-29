@@ -27,18 +27,7 @@ namespace adminlte.Controllers
             return View();
         }
 
-        public ActionResult CreateUser()
-        {
-            return View();
-        }
-        public ActionResult EditUser()
-        {
-            return View();
-        }
-        public ActionResult UsersList()
-        {
-            return View();
-        }
+       
         public ActionResult AddSchedule()
         {
             return View();

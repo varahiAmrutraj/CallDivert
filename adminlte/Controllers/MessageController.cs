@@ -21,7 +21,7 @@ namespace adminlte.Controllers
             adminlte.AdditionalClasses.SendMessages.SendMessage(message);
 
             // Optionally, you can redirect the user to another page after sending the message
-            return RedirectToAction("Mssage", "Message");
+            return RedirectToAction("Message", "Message");
         }
     }
 }
