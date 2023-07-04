@@ -10,6 +10,7 @@ namespace adminlte
     {
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Account> Accounts { get; set; }
         // Constructor to provide the connection string or name
         
         public CallDivertDBContext() : base(System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString)
