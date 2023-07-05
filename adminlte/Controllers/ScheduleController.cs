@@ -10,11 +10,11 @@ namespace adminlte.Controllers
 {
     public class ScheduleController : Controller
     {
-        private readonly adminlte.CallDivertDBContext _dbContext;
+        private readonly adminlte.DBContext _dbContext;
 
         public ScheduleController()
         {
-            _dbContext = new adminlte.CallDivertDBContext();
+            _dbContext = new adminlte.DBContext();
         }
 
 
@@ -27,15 +27,6 @@ namespace adminlte.Controllers
             // Return a response indicating the success or failure of the operation
             return Json(new { success = true });
         }
-
-
-
-
-
-
-
-
-
 
         public ActionResult Index()
         {
@@ -54,8 +45,8 @@ namespace adminlte.Controllers
             if (ModelState.IsValid)
             {
                 // Save the new user to the database
-                _dbContext.Users.Add(model);
-                _dbContext.SaveChanges();
+                //_dbContext.Users.Add(model);
+                //_dbContext.SaveChanges();
 
                 return RedirectToAction("List");
             }
@@ -99,36 +90,36 @@ namespace adminlte.Controllers
         // Helper method to retrieve the user from the database based on the provided ID
         private User GetUserById(int id)
         {
-            return _dbContext.Users.FirstOrDefault(u => u.Id == id);
+            return null;/*_dbContext.Users.FirstOrDefault(u => u.Id == id);*/
         }
 
         // Helper method to update the user in the database
         private void UpdateUser(User updatedUser)
         {
-             _dbContext.Entry(updatedUser).State = EntityState.Modified;
-             _dbContext.SaveChanges();
+             //_dbContext.Entry(updatedUser).State = EntityState.Modified;
+             //_dbContext.SaveChanges();
         }
 
         public ActionResult List()
         {
-            var userList = _dbContext.Users.ToList();
-            return View(userList);
+            //var userList = _dbContext.Users.ToList();
+            return View(new List<User>());
         }
 
         public ActionResult Delete(int id)
         {
-            var user = _dbContext.Users.Find(id);
+            //var user = _dbContext.Users.Find(id);
 
-            if (user == null)
-            {
-                // User not found, handle the error or redirect to an appropriate page
-                return HttpNotFound();
-            }
+            //if (user == null)
+            //{
+            //    // User not found, handle the error or redirect to an appropriate page
+            //    return HttpNotFound();
+            //}
 
-            _dbContext.Users.Remove(user);
-            _dbContext.SaveChanges();
+            //_dbContext.Users.Remove(user);
+            //_dbContext.SaveChanges();
 
-            // Redirect to the list view after successful deletion
+            //// Redirect to the list view after successful deletion
             return RedirectToAction("List");
         }
     }
